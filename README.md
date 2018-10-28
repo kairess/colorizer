@@ -5,13 +5,13 @@ Colorize black and white (grayscale) image (or video) to colorful color with Ope
 - Used pretrained model from [Zhang's Github](https://github.com/richzhang/colorization)  
 - Original paper: [Colorful Image Colorization](https://arxiv.org/pdf/1603.08511.pdf)
 
-  
+
 ![result.jpg](https://github.com/kairess/colorizer/raw/master/img/result.jpg)  
   
 
 Project contains:  
-1. Cat face detection with pretrained Mobilenetv2  
-2. Cat facial landmarks detection with pretrained Mobilenetv2  
+1. Colorize image (Jupyter notebook)  
+2. Colorize video (Python script)  
   
 
 # Requirement
