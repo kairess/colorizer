@@ -1,7 +1,8 @@
 import cv2 # opencv 3.4.2+ required
 import numpy as np
+import sys
 
-video_path = 'img/sincity.mp4'
+video_path = sys.argv[1]
 cap = cv2.VideoCapture(video_path)
 
 if not cap.isOpened():
@@ -14,6 +15,8 @@ output_size = (
 )
 fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
 out = cv2.VideoWriter('%s_output.mp4' % (video_path.split('.')[0]), fourcc, cap.get(cv2.CAP_PROP_FPS), output_size)
+
+n_frames = cap.get(cv2.CAP_PROP_FRAME_COUNT)
 
 proto = './models/colorization_deploy_v2.prototxt'
 weights = './models/colorization_release_v2.caffemodel'
@@ -87,6 +90,8 @@ while True:
     break
   elif key == ord('s'):
     skipping = not skipping
+
+  print('%s/%s' % (cap.get(cv2.CAP_PROP_POS_FRAMES), n_frames), end='\r')
 
 cap.release()
 out.release()
